@@ -113,6 +113,7 @@
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
     <hr> -->
     <button type="submit" class="registerbtn">Register</button>
+    <button type="reset" class="registerbtn">Reset</button>
   </div>
   <div class="container signin">
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
