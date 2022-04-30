@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage = "ShowError.jsp" %>
 <!DOCTYPE html>
 <html>
  <head>
@@ -152,8 +153,10 @@
   label a {
    margin-bottom: 1em;
    display: block;
-   color: #f38630;
-   text-decoration: none;  
+   color: #550a8a;
+   text-decoration: none;
+   text-align: center;
+   font-size: 17px;  
   }
 
   h1 {
@@ -173,12 +176,15 @@
    <input type="checkbox">
    <span class="menu"> <span class="hamburger"></span> </span>
    <ul>
-    <li> <a href="#">Home</a> </li>
-    <li> <a href="#">About</a> </li>
-    <li> <a href="#">Contact</a> </li>
+    <li> <a href="Services.jsp">Home</a> </li>
+    <li> <a href="AddBookRequest.jsp">Add book</a> </li>
+    <li> <a href="DeleteBookForm.jsp">Delete book</a> </li>
+    <li> <a href="ShowBooks.jsp">Show my books</a> </li>
+    <li> <a href="Logout.jsp">Log out</a> </li>
    </ul>
   </label>
    <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 190px;">
+   <p style="color: black; position: relative; top:-50px; left: 20px;">User ID: <%out.print(DB.Connections.getID());%></p>
   </div>
   <div class="container">
   <img src="back.jpg" style = "position:relative; left:-14px; top:-30px; width: 865px; hight: 220px;">

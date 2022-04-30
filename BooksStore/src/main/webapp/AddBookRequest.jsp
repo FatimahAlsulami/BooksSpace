@@ -5,12 +5,13 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
- <title>Register</title>
-   <style>
+<title>Add book request</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
     body {
      float: right;
      font-family: Arial, Helvetica, sans-serif;
-     background-color: #7319c8; 
+     background-color: #89CFF0; 
      background-size: 50% 100%;
     }
 
@@ -30,7 +31,7 @@
     }
 
     /* Full-width input fields */
-    input[type=text], input[type=password], input[type=email]{
+    input[type=text], input[type=password] {
      width: 95%;
      padding: 15px;
      margin: 5px 0 22px 0;
@@ -80,45 +81,62 @@
      text-align: center;
      float: right;
     }
+    a {
+     text-decoration: none;
+     display: inline-block;
+     padding: 8px 16px;
+    }
+
+    a:hover {
+     background-color: RoyalBlue;
+     color: black;
+    }
+    .next {
+     background-color: #66000000;
+     color: white;
+     position: fixed;
+     top: 100;
+    }
    </style>
 </head>
 <body>
-  
- <style>
+<style>
     body {
-    background-image: url('reg.jpg');
+    background-image: url('bokadd.jpg');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: 48% 100%;
     }
   </style>
-<form name="loginForm" action="Create.jsp" method="POST">
+  <a href="Services.jsp" class="next"><i class="fa fa-home"></i> Home </a>
+<form name="loginForm" action="addBook.jsp" method="POST">
   <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>Add new book request</h1>
+    <p>Please insert required book information then wait acceptance.</p>
     <hr>
 
-    <label for="email"><b>First name:</b></label>
-    <input type="text" placeholder="Your first name" name="Fname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
+    <label for="email"><b>Book title:</b></label>
+    <input type="text" placeholder="Book title" name="Book_Name" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
-    <label for="email"><b>Last Name:</b></label>
-    <input type="text" placeholder="Your last name" name="Lname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
+    <label for="email"><b>Author Name:</b></label>
+    <input type="text" placeholder="Book author name" name="Book_Author" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Your Email" name="Email" size="30" required>
-
-    <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="Pass" size="20" required>
-
-    <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
-    <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
-    <hr> -->
-    <button type="submit" class="registerbtn">Register</button>
+    <label for="psw"><b>Category:&nbsp&nbsp&nbsp</b></label>
+    <select name="Book_category" required style="width: 240px;">
+      <option value="Math">Math</option>
+      <option value="Science">Science</option>
+      <option value="Religious">Religious</option>
+      <option value="Programming">Programming</option>
+     </select><br><br>
+    <hr>
+    
+    <label for="email"><b>Book price:</b></label>
+    <input type="number" placeholder="Book price by SAR" name="Book_Price" size="20" min="0.00" max="10000.00" step="0.01" required style="width: 240px;"> 
+    <button type="submit" class="registerbtn">Request</button>
     <button type="reset" class="registerbtn">Reset</button>
   </div>
   <div class="container signin">
-    <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <p>Already have an account? <a href="Login.jsp">Sign in</a>.</p>
+    <p>You can show here rule of book acceptance <a href="#">Books rules</a>.</p>
   </div>
 </form>
 </body>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage = "ShowError.jsp" %>
 <!DOCTYPE html>
 <html>
  <head>
@@ -68,7 +69,7 @@
 <body>
   <div class="header">
    <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 190px;">
-   <form action="login.jsp">
+   <form action="Login.jsp">
     <input type="submit" value="Log in" style = "position:relative; left: 700px; top: -110px; "/>
    </form>
    <form action="SignUp.jsp">
