@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
- <title>Register</title>
+<title>Register</title>
    <style>
     body {
      float: right;
@@ -30,7 +30,7 @@
     }
 
     /* Full-width input fields */
-    input[type=text], input[type=password], input[type=email]{
+    input[type=text], input[type=password], input[type=number] {
      width: 95%;
      padding: 15px;
      margin: 5px 0 22px 0;
@@ -83,8 +83,7 @@
    </style>
 </head>
 <body>
-  
- <style>
+<style>
     body {
     background-image: url('reg.jpg');
     background-repeat: no-repeat;
@@ -92,20 +91,17 @@
     background-size: 48% 100%;
     }
   </style>
-<form name="loginForm" action="Create.jsp" method="POST">
+<form name="loginForm" action="getUser.jsp" method="POST">
   <div class="container">
-    <h1>Register</h1>
-    <p>Please fill in this form to create an account.</p>
+    <h1>Log in</h1>
+    <p>Please fill your information to login.</p>
     <hr>
 
     <label for="email"><b>First name:</b></label>
     <input type="text" placeholder="Your first name" name="Fname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
-    <label for="email"><b>Last Name:</b></label>
-    <input type="text" placeholder="Your last name" name="Lname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
-
-    <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Your Email" name="Email" size="30" required>
+    <label for="email"><b>User ID:</b></label>
+    <input type="number" placeholder="Your ID only numbers" name="user_ID" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
     <label for="psw"><b>Password</b></label>
     <input type="password" placeholder="Enter Password" name="Pass" size="20" required>
@@ -113,12 +109,12 @@
     <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>
     <hr> -->
-    <button type="submit" class="registerbtn">Register</button>
+    <button type="submit" class="registerbtn">Log in</button>
     <button type="reset" class="registerbtn">Reset</button>
   </div>
   <div class="container signin">
     <p>By creating an account you agree to our <a href="#">Terms & Privacy</a>.</p>
-    <p>Already have an account? <a href="Login.jsp">Sign in</a>.</p>
+    <p>Do not have an account? <a href="SignUp.jsp">Sign up</a>.</p>
   </div>
 </form>
 </body>

@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage = "ShowError.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,8 +17,9 @@
   boolean isAdded = conn.addUser(fName, lName, email, password);
   if(isAdded)%>
   <%@ include file="Services.jsp" %>
-  <%if(!isAdded)
-  out.print("Error");
+  <%if(!isAdded)%>
+  <%@ include file="Index.jsp" %>
+  <%
   %>
 </body>
 </html>
