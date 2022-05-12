@@ -12,7 +12,7 @@
    }
    .header {
    position: relavint;
-   width: 860px;
+   width: 1300px;
    hight: 120px;
    top: -100;
    padding: 0px;
@@ -59,11 +59,11 @@
    background-color: #F2000000;
    color: white;
    text-aling: right;
-   width: 300px;
+   width: 380px;
    hight: 30px;
    padding-left: 20px;
    padding-right: 20px;
-   font-size: 17px;
+   font-size: 26px;
   }
   *, *:before, *:after 
   { box-sizing: border-box; }
@@ -179,7 +179,8 @@
     <li> <a href="Services.jsp">Home</a> </li>
     <li> <a href="AddBookRequest.jsp">Add book</a> </li>
     <li> <a href="DeleteBookForm.jsp">Delete book</a> </li>
-    <li> <a href="ShowBooks.jsp">Show my books</a> </li>
+    <li> <a href="user_requests.jsp">Show my requests</a>
+    <li> <a href="ShowBooks.jsp">Show books</a> </li><!-- show my books or all books i am not sure-->
     <li> <a href="Logout.jsp">Log out</a> </li>
    </ul>
   </label>
@@ -187,16 +188,16 @@
    <p style="color: black; position: relative; top:-50px; left: 20px;">User ID: <%out.print(DB.Connections.getID());%></p>
   </div>
   <div class="container">
-  <img src="back.jpg" style = "position:relative; left:-14px; top:-30px; width: 865px; hight: 220px;">
+  <img src="back.jpg" style = "position:relative; left:-14px; top:-30px; width: 1300px; hight: 157px;">
   <div class="text-block">
-    <p style = "font-family: Courier New, monospace; font-size: 80px;">BOOKS</p>
-    <p style = "font-family: Courier New, monospace; font-size: 80px;">SPACE</p>
+    <p style = "font-family: Courier New, monospace; font-size: 130px;">BOOKS</p>
+    <p style = "font-family: Courier New, monospace; font-size: 130px;">SPACE</p>
   </div>
   <div class="tet-block">
     <p style = "font-family: Times New Roman, Serif;">Our website helps to maintain sustainability. By enabling user to exchange books by reselling them. And also enable user to request recycling cover of the books and present all shops that provide this services and their locations, user can choose the nearest shop of his location. Our website is one of the best opportunities for those who cannot afford enough time to get their course books. Also to reusing books instead of throwing them away</p>
   </div>
 </div>
     
-   <h2 style = "position: absolute; left: 200px; bottom: -377px;">Today a Reader, Tomorrow a Leader</h2>
+   <h2 style = "position: absolute; left: 430px; bottom: -470px;">Today a Reader, Tomorrow a Leader</h2>
 </body>
 </html>

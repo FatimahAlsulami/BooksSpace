@@ -9,15 +9,15 @@
 <body>
  <%
   String BName = request.getParameter("Book_Name");
-  String AName = request.getParameter("Book_Author");
-  String Categ = request.getParameter("Book_category");
-  String price = request.getParameter("Book_Price");
+  String AName = request.getParameter("Book_Auther");
+  String Categ = request.getParameter("Book_Category");
+  String price = request.getParameter("Price");
   DB.Connections conn = new DB.Connections();
-  boolean isAdded = conn.addBook(BName, AName, Categ, price);
-  if(isAdded)%>
+  boolean isAdded = conn.addRequest(BName, AName, Categ, price);
+  if(isAdded){%>
   <%@ include file="requestDone.jsp" %>
-  <%if(!isAdded)
-  out.print("Error");
-  %>
+  <%}if(!isAdded){%>
+  <%@ include file="requestNotDone.jsp" %>
+  <%}%>
 </body>
 </html>

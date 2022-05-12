@@ -1,7 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.sql.*" %>
     <%@ page errorPage = "ShowError.jsp" %>
+<%@ page import="java.sql.*" %>                              <!-- Still need work and connect with request relation -->
+    
 <!DOCTYPE html>
 <html>
 <head>
@@ -86,14 +87,14 @@
   
  <%
   DB.Connections book =new DB.Connections();
-  ResultSet result = book.getBooks();
+  ResultSet result = book.getRequests();
   if(result==null){
 	  System.out.println("ss");
          out.print("error");         
      }
  %>
  
-  <h1 class="heading">List of Books</h1>
+  <h1 class="heading">List of Add Books Requests</h1>
   <div class="container">
     <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
       <div class="tabs-menu w-tab-menu">
@@ -104,19 +105,21 @@
                   <table border=1 style="width:80%">  
               <tbody>
                       <tr>
-                         <td>Book ID</td>
                           <td>Book Name</td>
                             <td>Price</td>
-                                <td>Author</td>
-                          <td>Category</td>
+                              <td>Author</td>
+                                <td>Category</td>
+                                 <td>Action</td>
                       </tr>
-                      <% while(result.next()) {%>
+                      <% while(result.next()) {
+                    	  %>
                       <tr>
-                           <td><%= result.getInt("Book_ID")%></td>
                            <td><%= result.getString("Book_Name")%></td>
-                           <td><%= result.getString("Book_Price")%></td>
-                           <td><%= result.getString("Book_Author")%></td>
-                           <td><%= result.getString("Book_category")%></td>
+                           <td><%= result.getString("Price")%></td>
+                           <td><%= result.getString("Book_Auther")%></td>
+                           <td><%= result.getString("Book_Category")%></td>
+                           <td><a href="accept_books.jsp?Book_ID=<%=result.getInt("Book_ID")%>"> Accept </a> |
+                               <a href="reject_books.jsp?Book_ID=<%=result.getInt("Book_ID")%>"> Reject </a>  </td>
                        </tr>
                       <% } 
                       result.close();
@@ -126,7 +129,7 @@
                   </div>
                  </div>
                 </div>
-                <form action= "Services.jsp" style="text-align: center; position: relative; left: -290px;">
+                <form action= "Admin_Home_Page.jsp" style="text-align: center; position: relative; left: -290px;">
                 <br><br><button type="submit" class="registerbtn">Back Home</button>
                 </form>
                 </div>

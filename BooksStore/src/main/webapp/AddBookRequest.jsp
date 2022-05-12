@@ -31,7 +31,7 @@
     }
 
     /* Full-width input fields */
-    input[type=text], input[type=password] {
+    input[type=text], input[type=password] ,input[type=number] , .colored{
      width: 95%;
      padding: 15px;
      margin: 5px 0 22px 0;
@@ -119,19 +119,20 @@
     <input type="text" placeholder="Book title" name="Book_Name" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
     <label for="email"><b>Author Name:</b></label>
-    <input type="text" placeholder="Book author name" name="Book_Author" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
+    <input type="text" placeholder="Book author name" name="Book_Auther" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
-    <label for="psw"><b>Category:&nbsp&nbsp&nbsp</b></label>
-    <select name="Book_category" required style="width: 240px;">
-      <option value="Math">Math</option>
-      <option value="Science">Science</option>
-      <option value="Religious">Religious</option>
-      <option value="Programming">Programming</option>
+    <label for="psw" ><b>Category:&nbsp&nbsp&nbsp</b></label><br>
+    <select class="colored" name="Book_Category" required >
+      <option class="colored" >Math</option>
+      <option class="colored">Science</option>
+      <option class="colored">Religious</option>
+      <option class="colored">Programming</option>
      </select><br><br>
     <hr>
     
-    <label for="email"><b>Book price:</b></label>
-    <input type="number" placeholder="Book price by SAR" name="Book_Price" size="20" min="0.00" max="10000.00" step="0.01" required style="width: 240px;"> 
+    <label for="email"><b>Book price:</b></label><br>
+    <input type="number" placeholder="Book price by SAR" name="Price" size="20" min="0.00" max="10000.00" step="0.01" required "> 
+    <br>
     <button type="submit" class="registerbtn">Request</button>
     <button type="reset" class="registerbtn">Reset</button>
   </div>
