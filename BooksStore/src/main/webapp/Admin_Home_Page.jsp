@@ -3,9 +3,9 @@
     <%@ page errorPage = "ShowError.jsp" %>
 <!DOCTYPE html>
 <html>
- <head>
- <meta charset="ISO-8859-1">
- <title>Home page</title>
+<head>
+<meta charset="ISO-8859-1">
+<title>Home page</title>
  <style>
    body {
    background-color: #170a45;
@@ -176,15 +176,13 @@
    <input type="checkbox">
    <span class="menu"> <span class="hamburger"></span> </span>
    <ul>
-    <li> <a href="Services.jsp">Home</a> </li>
-    <li> <a href="AddBookRequest.jsp">Add book</a> </li>
-    <li> <a href="DeleteBookForm.jsp">Delete book</a> </li>
-    <li> <a href="user_requests.jsp">Show my requests</a>
-    <li> <a href="ShowBooks.jsp">Show books</a> </li><!-- show my books or all books i am not sure-->
+    <li> <a href="Admin_Home_Page.jsp">Home</a> </li>
+    <li> <a href="Admin_Add_Books_Requestes.jsp">Add book Requests</a> </li><!-- Here admin will show all rows at requests table to decide if accept then transfer to Books information or reject-->
+    <li> <a href="Admin_Show_Books.jsp">Show list of books</a> </li>
     <li> <a href="Logout.jsp">Log out</a> </li>
    </ul>
   </label>
-   <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 190px;">
+   <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 290px;">
    <p style="color: black; position: relative; top:-50px; left: 20px;">User ID: <%out.print(DB.Connections.getID());%></p>
   </div>
   <div class="container">
