@@ -1,19 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
-    <%@ page import="java.sql.*" %>
     <%@ page errorPage = "ShowError.jsp" %>
+    <%@ page import="java.sql.*" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Show Books</title>
+<title>each user requests list</title>
 <style>
     body {
      float: center;
      font-family: Arial, Helvetica, sans-serif;
-     background-color: #E6E6FA; 
+     background-color: #8B008B; 
      background-size: 100% 100%;
     }
+    
 .icon-bar {
   width: 15%;
   background-color: #5552;
@@ -32,19 +33,14 @@
 
 .icon-bar a:hover {
   background-color: #8B008B;
-}.icon-bar a:hover {
-  background-color: #8B008B;
 }
 
-.active {
-  background-color: #8B008B;
-}
     * {
      box-sizing: border-box;
     }
 
     /* Add padding to containers */
- .container {
+      .container {
      position: relative;
      width:-20%;
     height: auto;
@@ -59,7 +55,6 @@
     }
 
 
-
     /* Overwrite default styles of hr */
     hr {
      float: right;
@@ -68,24 +63,7 @@
     }
 
     /* Set a style for the submit button */
-    .registerbtn {
-     position: relative;
-     background-color: rgba(20,10,100);
-     color: white;
-     padding: 16px 20px;
-     margin: 8px 0px;
-     border: none;
-     cursor: pointer;
-     width: 30%;
-     position: <br>;
-     top: 100%;
-     left: 37%;
-     opacity: 0.9;
-    }
-
-    .registerbtn:hover {
-     opacity: 1;
-    }
+ 
     h1, form{
      text-align: center;
     }
@@ -103,37 +81,45 @@
     th:nth-child(even),td:nth-child(even) {
      background-color: #E6E6FA;
     }
+    
+        .next {
+     background-color: #66000000;
+     color: white;
+     top: 100;
+     right: -3%;
+    }
+    
    </style>
 </head>
 <body>
 <style>
     body {
-    background-color:#E6E6FA;
+    background-color: #E6E6FA;
     background-size: 100% 100%;
     }
   </style>
   
  <%
   DB.Connections book =new DB.Connections();
-  ResultSet result = book.getBooks();
+  ResultSet result = book.getMyRequests();
   if(result==null){
 	  System.out.println("ss");
          out.print("error");         
      }
  %>
  
-  
+ 
           <div class="icon-bar">
      <a class="active" href="#"><i class="fa fa-home"></i></a> 
      <a href="Serv.jsp"><i class="fa fa-envelope"></i><img alt="1" src="home.png" /></a> 
      <a href="AboutUs.jsp">  <i class="fas fa-envelope"></i><img alt="2" src="about-us.png" /></a> 
      <a href="Logout.jsp">  <i class="fas fa-sign-out-alt"></i><img alt="2" src="logoutt.png" /></a>
-</div>   	
+</div>
 
-	<h1>List <font color="#8B008B">Of</font> Books</h1>
-
+ 
+  <h1>List <font color="#8B008B">Of</font> Requests</h1>
 	
-
+	
   <div class="container">
     <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
       <div class="tabs-menu w-tab-menu">
@@ -144,19 +130,20 @@
                   <table border=1 style="width:80%">  
               <tbody>
                       <tr>
-                         <td>Book ID</td>
                           <td>Book Name</td>
                             <td>Price</td>
-                                <td>Author</td>
-                          <td>Category</td>
+                              <td>Author</td>
+                                <td>Category</td>
+                                 <td>Request state</td>
                       </tr>
-                      <% while(result.next()) {%>
+                      <% while(result.next()) {
+                    	  %>
                       <tr>
-                           <td><%= result.getInt("Book_ID")%></td>
                            <td><%= result.getString("Book_Name")%></td>
-                           <td><%= result.getString("Book_Price")%></td>
-                           <td><%= result.getString("Book_Author")%></td>
-                           <td><%= result.getString("Book_category")%></td>
+                           <td><%= result.getString("Price")%></td>
+                           <td><%= result.getString("Book_Auther")%></td>
+                           <td><%= result.getString("Book_Category")%></td>
+                           <td><%= result.getString("Request_State")%></td>
                        </tr>
                       <% } 
                       result.close();
@@ -166,7 +153,7 @@
                   </div>
                  </div>
                 </div>
-                </div>
                   <h2 style = "position: absolute; left: 430px; bottom: -470px;">Today a Reader, Tomorrow a Leader</h2>
+                </div>
 </body>
 </html>

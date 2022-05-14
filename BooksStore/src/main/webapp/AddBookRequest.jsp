@@ -94,9 +94,9 @@
     .next {
      background-color: #66000000;
      color: white;
-     position: fixed;
      top: 100;
     }
+    
    </style>
 </head>
 <body>
@@ -108,7 +108,12 @@
     background-size: 48% 100%;
     }
   </style>
-  <a href="Services.jsp" class="next"><i class="fa fa-home"></i> Home </a>
+  
+  <a href="Serv.jsp" class="next"><i class="fa fa-home"></i> Home </a>
+  <a href="Logout.jsp" class="next"><i class="fa fa-sign-out"></i> Logout </a>
+   <a href="AboutUs.jsp" class="next"><i class="fa fa-info-circle"></i> About Us </a>
+  
+  
 <form name="loginForm" action="addBook.jsp" method="POST">
   <div class="container">
     <h1>Add new book request</h1>
