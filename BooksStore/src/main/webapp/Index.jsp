@@ -42,7 +42,6 @@
     position: relative;
     font-family: Arial;
    }
-
   .text-block {
    position: absolute;
    bottom: 360px;
@@ -87,7 +86,6 @@
     <p style = "font-family: Times New Roman, Serif; font-size: 27px;">Our website helps to maintain sustainability. By enabling user to exchange books by reselling them. And also enable user to request recycling cover of the books and present all shops that provide this services and their locations, user can choose the nearest shop of his location. Our website is one of the best opportunities for those who cannot afford enough time to get their course books. Also to reusing books instead of throwing them away</p>
   </div>
 </div>
-    
    <h1 style = "position: absolute; left: 369px; bottom: -450px;">Today a Reader, Tomorrow a Leader</h1>
 </body>
 </html>

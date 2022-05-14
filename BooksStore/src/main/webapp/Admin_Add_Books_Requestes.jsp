@@ -21,16 +21,46 @@
     }
 
     /* Add padding to containers */
-    .container {
+      .container {
      position: relative;
-     width: 98%;
-     hight: 1000%;
-     float: right;
-     padding: 16px;
+     width:-20%;
+    height: auto;
+     top: 100%;
+     float: center;
+     padding-top: 21px;
+     padding-left:150px;
+     padding-right:120px;
+     padding-down:120px;
+     padding-bottom:450px;
      background-color: white;
     }
 
 
+.icon-bar {
+  width: 15%;
+  background-color: #5552;
+  overflow: auto;
+}
+
+.icon-bar a {
+ float: left;
+  width: 20%;
+  text-align: center;
+  padding: 10px 0;
+  transition: all 0.3s ease;
+  color: white;
+  font-size: 36px;
+}
+
+.icon-bar a:hover {
+  background-color: #8B008B;
+}.icon-bar a:hover {
+  background-color: #8B008B;
+}
+
+.active {
+  background-color: #8B008B;
+}
 
     /* Overwrite default styles of hr */
     hr {
@@ -73,14 +103,14 @@
      border-collapse: collapse;
     }
     th:nth-child(even),td:nth-child(even) {
-     background-color: #D6EEEE;
+     background-color: #E6E6FA;
     }
    </style>
 </head>
 <body>
 <style>
     body {
-    background-color: rgba(219,209,219);
+    background-color: #E6E6FA;
     background-size: 100% 100%;
     }
   </style>
@@ -94,7 +124,16 @@
      }
  %>
  
-  <h1 class="heading">List of Add Books Requests</h1>
+         <div class="icon-bar">
+     <a class="active" href="#"><i class="fa fa-home"></i></a> 
+     <a href="Serv.jsp"><i class="fa fa-envelope"></i><img alt="1" src="home.png" /></a> 
+     <a href="AboutUs.jsp">  <i class="fas fa-envelope"></i><img alt="2" src="about-us.png" /></a> 
+     <a href="Logout.jsp">  <i class="fas fa-sign-out-alt"></i><img alt="2" src="logoutt.png" /></a>
+</div>   	
+
+	<h1>List <font color="#8B008B">Of Add</font> Books Requests</h1>
+
+	
   <div class="container">
     <div data-duration-in="300" data-duration-out="100" class="tabs w-tabs">
       <div class="tabs-menu w-tab-menu">
@@ -129,9 +168,8 @@
                   </div>
                  </div>
                 </div>
-                <form action= "Admin_Home_Page.jsp" style="text-align: center; position: relative; left: -290px;">
-                <br><br><button type="submit" class="registerbtn">Back Home</button>
-                </form>
+              
                 </div>
+                  <h2 style = "position: absolute; left: 430px; bottom: -470px;">Today a Reader, Tomorrow a Leader</h2>
 </body>
 </html>

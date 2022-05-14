@@ -34,10 +34,12 @@ public class Connections {
 		 public boolean addUser(String fName, String lName, String Email, String password) {
 		 ID = ID + (int)(Math.random()*100);
 		 user = ID;
+		 // insert to user table user info 
 		 sqlQuery = "insert into users_info (Fname, Lname, Email, Pass, user_ID, user_role) values(?,?,?,?,?,?)";
 		    try{
 		    	if(connection == null)
 		    		System.out.println("Hi");
+		    	 // using PreparedStatement to prevent SQLI  
 		      preparedStmt = connection.prepareStatement(sqlQuery);
 		      preparedStmt.setString(4, password);
 		      preparedStmt.setString(1, fName);
@@ -46,6 +48,7 @@ public class Connections {
 		      preparedStmt.setString(5, String.valueOf(ID));
 		      preparedStmt.setString(6, "user");
 		      preparedStmt.executeUpdate();
+		      
 		    }catch(SQLException e){
 		      System.out.println("SQL");
 		      System.out.println(e.getMessage());
@@ -57,6 +60,7 @@ public class Connections {
 		    }
 		      return true;
 		    } 
+		 // return ID and Pass from user table to check validity if authorized user or no ? 
 		 public ResultSet getUser(String Fname,String Lname, String Pass) throws NumberFormatException {
 			    sqlQuery = "SELECT * FROM users_info WHERE Fname= ? and user_ID=? and Pass=?";
 			    try{
@@ -65,6 +69,7 @@ public class Connections {
 			      preparedStmt.setString(2,Lname);
 			      preparedStmt.setString(3,Pass);
 			      
+			      // using resultset to execute sql query 
 			      resultSet = preparedStmt.executeQuery();
 			      user = Integer.parseInt(Lname);
 			    }catch(SQLException e){
@@ -72,6 +77,7 @@ public class Connections {
 			    }
 			    return resultSet;
 			  }
+		 // method to add book information in book table in database 
 		 public boolean addBook(String user_ID, String BName, String AName, String Categ, String price) {
 
 			 sqlQuery = "insert into books_info (Book_Name, Book_Author, Book_category, Book_Price, user_ID) values(?,?,?,?,?)";
@@ -96,6 +102,7 @@ public class Connections {
 			    }
 			      return true;
 			    } 
+		 // method to add request of books and state of request , there is three type of request state(Waiting, Accepted , Rejected)
 		 public boolean addRequest(String BName, String AName, String Categ, String price) {
 			 sqlQuery = "insert into requests (Book_Name, Book_Auther, Book_Category, Price, user_ID, Request_State) values(?,?,?,?,?,?)";
 			 try{
@@ -121,7 +128,7 @@ public class Connections {
 			      return true;
 		 }
 		 
-		 // show books
+		 // show books> this method to return all books info 
 		 public ResultSet getBooks() {
 			    sqlQuery = "SELECT * FROM books_info;";
 			    try {

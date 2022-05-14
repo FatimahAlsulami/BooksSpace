@@ -11,7 +11,7 @@
     body {
      float: right;
      font-family: Arial, Helvetica, sans-serif;
-     background-color: black; 
+     background-color: #800080; 
      background-size: 50% 100%;
     }
 
@@ -23,12 +23,13 @@
     .container {
      display: inline-block;
      position: relative;
-     width: 67%;
+     width: 100%;
+     Hight:100%;
      float: right;
      right: 7px;
-     padding: 16px;
+     padding: 29px;
      background-color: white;
-     background-size: 50% 100%;
+     background-size: 80% 100%;
     }
 
     /* Full-width input fields */
@@ -95,11 +96,12 @@
     .next {
      background-color: #66000000;
      color: white;
-     position: fixed;
+     position: relative;
      top: 100;
      left: 10px;
     }
    </style>
+
 </head>
 <body>
    <style>
@@ -111,6 +113,8 @@
     }
   </style>
   <a href="Services.jsp" class="next"><i class="fa fa-home"></i> Home </a>
+    <a href="Logout.jsp" class="next"><i class="fa fa-sign-out"></i> Logout </a>
+   <a href="AboutUs.jsp" class="next"><i class="fa fa-info-circle"></i> About Us </a>
 <form action="DeletBook.jsp">
   <div class="container">
     <h1>Delete Book Request</h1>
@@ -124,7 +128,8 @@
     <input type="text" placeholder="Book Author name" name="Book_Author" required>
     
     <hr>
-    <br><br><br>
+    <p> you can only delete your books </p>
+    <br><br><br><br><br><br><br><br>
     <button type="submit" class="registerbtn">Delete Book</button>
     <button type="reset" class="registerbtn">Reset</button>
   </div>
