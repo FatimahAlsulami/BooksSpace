@@ -15,11 +15,11 @@
   String password = request.getParameter("Pass");
   DB.Connections conn = new DB.Connections();
   boolean isAdded = conn.addUser(fName, lName, email, password);
-  if(isAdded)%>
+  if(isAdded){%>
   <%@ include file="Services.jsp" %>
-  <%if(!isAdded)%>
+  <%}if(!isAdded){%>
   <%@ include file="Index.jsp" %>
-  <%
+  <%}
   %>
 </body>
 </html>

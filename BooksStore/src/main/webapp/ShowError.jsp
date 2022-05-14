@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    
 
 <!DOCTYPE html>
 <html>
@@ -166,7 +167,7 @@ body {
 			<svg class="icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 60 60">
 				<path d="M55.549 59.122h-46.042a2.032 2.032 0 0 1 -2.032 -2.032V26.703A2.032 2.032 0 0 1 8.125 25.133l23.075 -18.797a1.976 1.976 0 0 1 2.547 0L56.875 25.133a2.032 2.032 0 0 1 0.732 1.571V57.092A2.032 2.032 0 0 1 55.549 59.122ZM11.483 55.059H53.517V27.653L32.5 10.534 11.483 27.653Z"></path>
 			</svg>
-			<p><a href="Services.jsp" target="_blank">Press to back Home page</a></p>
+			<p>Back Home page</p>
 		</div>
 		</ul>
 	</div>

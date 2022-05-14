@@ -13,6 +13,13 @@
  String Book_nam = request.getParameter("Book_Name");
  String Book_aut = request.getParameter("Book_Author");
  
+ String userid = (String)session.getAttribute("user_ID");
+ if(userid==null)
+ {
+     response.sendRedirect("Login.jsp");
+     return; //the return is important; forces redirect to go now
+ } 
+ 
  DB.Connections Book = new DB.Connections();
  ResultSet result = Book.getBook(Book_nam, Book_aut);
  if(result.next()){

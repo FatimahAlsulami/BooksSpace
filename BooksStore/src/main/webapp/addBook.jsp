@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
     pageEncoding="ISO-8859-1"%>
+    <%@ page errorPage = "ShowError.jsp" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,15 +10,23 @@
 <body>
  <%
   String BName = request.getParameter("Book_Name");
-  String AName = request.getParameter("Book_Author");
-  String Categ = request.getParameter("Book_category");
-  String price = request.getParameter("Book_Price");
+  String AName = request.getParameter("Book_Auther");
+  String Categ = request.getParameter("Book_Category");
+  String price = request.getParameter("Price");
+  
+  String userid = (String)session.getAttribute("user_ID");
+  if(userid==null)
+  {
+      response.sendRedirect("Login.jsp");
+      return; //the return is important; forces redirect to go now
+  } 
+  
   DB.Connections conn = new DB.Connections();
-  boolean isAdded = conn.addBook(BName, AName, Categ, price);
-  if(isAdded)%>
+  boolean isAdded = conn.addRequest(BName, AName, Categ, price);
+  if(isAdded){%>
   <%@ include file="requestDone.jsp" %>
-  <%if(!isAdded)
-  out.print("Error");
-  %>
+  <%}if(!isAdded){%>
+  <%@ include file="requestNotDone.jsp" %>
+  <%}%>
 </body>
 </html>

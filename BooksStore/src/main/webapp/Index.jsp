@@ -12,7 +12,7 @@
    }
    .header {
    position: relavint;
-   width: 860px;
+   width: 1300px;
    hight: 120px;
    top: -100;
    padding: 0px;
@@ -45,8 +45,8 @@
 
   .text-block {
    position: absolute;
-   bottom: 250px;
-   left: 20px;
+   bottom: 360px;
+   left: 100px;
    background-color: #F2000000;
    color: white;
    padding-left: 20px;
@@ -59,7 +59,7 @@
    background-color: #F2000000;
    color: white;
    text-aling: right;
-   width: 300px;
+   width: 330px;
    hight: 30px;
    padding-left: 20px;
    padding-right: 20px;
@@ -68,25 +68,26 @@
 </head>
 <body>
   <div class="header">
-   <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 190px;">
+   <img src="logo.png" style = "position:relative; left:-15px; top:-13px; width: 200px; hight: 290px;">
    <form action="Login.jsp">
-    <input type="submit" value="Log in" style = "position:relative; left: 700px; top: -110px; "/>
+    <input type="submit" value="Log in" style = "position:relative; left: 1100px; top: -110px; "/>
    </form>
    <form action="SignUp.jsp">
-    <input type="submit" value="Sign Up" style = "position:relative; left: 580px; top: -157px; "/>
+    <input type="submit" value="Sign Up" style = "position:relative; left: 980px; top: -157px; "/>
    </form>
   </div>
+  <img src="back.jpg" style = "position:relative; left:-14px; top:-120px; width: 1300px; hight: 157px;">
   <div class="container">
-  <img src="back.jpg" style = "position:relative; left:-14px; top:-120px; width: 865px; hight: 357px;">
+  
   <div class="text-block">
-    <p style = "font-family: Courier New, monospace; font-size: 80px;">BOOKS</p>
-    <p style = "font-family: Courier New, monospace; font-size: 80px;">SPACE</p>
+    <p style = "font-family: Courier New, monospace; font-size: 130px;">BOOKS</p>
+    <p style = "font-family: Courier New, monospace; font-size: 130px;">SPACE</p>
   </div>
   <div class="tet-block">
-    <p style = "font-family: Times New Roman, Serif;">Our website helps to maintain sustainability. By enabling user to exchange books by reselling them. And also enable user to request recycling cover of the books and present all shops that provide this services and their locations, user can choose the nearest shop of his location. Our website is one of the best opportunities for those who cannot afford enough time to get their course books. Also to reusing books instead of throwing them away</p>
+    <p style = "font-family: Times New Roman, Serif; font-size: 27px;">Our website helps to maintain sustainability. By enabling user to exchange books by reselling them. And also enable user to request recycling cover of the books and present all shops that provide this services and their locations, user can choose the nearest shop of his location. Our website is one of the best opportunities for those who cannot afford enough time to get their course books. Also to reusing books instead of throwing them away</p>
   </div>
 </div>
     
-   <h1 style = "position: absolute; left: 169px; bottom: -377px;">Today a Reader, Tomorrow a Leader</h1>
+   <h1 style = "position: absolute; left: 369px; bottom: -450px;">Today a Reader, Tomorrow a Leader</h1>
 </body>
 </html>

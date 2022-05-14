@@ -34,7 +34,7 @@ public class Connections {
 		 public boolean addUser(String fName, String lName, String Email, String password) {
 		 ID = ID + (int)(Math.random()*100);
 		 user = ID;
-		 sqlQuery = "insert into users_info (Fname, Lname, Email, Pass, user_ID) values(?,?,?,?,?)";
+		 sqlQuery = "insert into users_info (Fname, Lname, Email, Pass, user_ID, user_role) values(?,?,?,?,?,?)";
 		    try{
 		    	if(connection == null)
 		    		System.out.println("Hi");
@@ -44,6 +44,7 @@ public class Connections {
 		      preparedStmt.setString(2, lName);
 		      preparedStmt.setString(3, Email);
 		      preparedStmt.setString(5, String.valueOf(ID));
+		      preparedStmt.setString(6, "user");
 		      preparedStmt.executeUpdate();
 		    }catch(SQLException e){
 		      System.out.println("SQL");
@@ -71,7 +72,7 @@ public class Connections {
 			    }
 			    return resultSet;
 			  }
-		 public boolean addBook(String BName, String AName, String Categ, String price) {
+		 public boolean addBook(String user_ID, String BName, String AName, String Categ, String price) {
 
 			 sqlQuery = "insert into books_info (Book_Name, Book_Author, Book_category, Book_Price, user_ID) values(?,?,?,?,?)";
 			    try{
@@ -82,7 +83,7 @@ public class Connections {
 			      preparedStmt.setString(2, AName);
 			      preparedStmt.setString(3, Categ);
 			      preparedStmt.setString(4, price);
-			      preparedStmt.setString(5, String.valueOf(user));
+			      preparedStmt.setString(5, user_ID);
 			      preparedStmt.executeUpdate();
 			    }catch(SQLException e){
 			      System.out.println("SQL");
@@ -95,6 +96,30 @@ public class Connections {
 			    }
 			      return true;
 			    } 
+		 public boolean addRequest(String BName, String AName, String Categ, String price) {
+			 sqlQuery = "insert into requests (Book_Name, Book_Auther, Book_Category, Price, user_ID, Request_State) values(?,?,?,?,?,?)";
+			 try{
+			    	if(connection == null)
+			    		System.out.println("Hi");
+			      preparedStmt = connection.prepareStatement(sqlQuery);
+			      preparedStmt.setString(1, BName);
+			      preparedStmt.setString(2, AName);
+			      preparedStmt.setString(3, Categ);
+			      preparedStmt.setString(4, price);
+			      preparedStmt.setString(5, String.valueOf(getID()));
+			      preparedStmt.setString(6, "Waiting");
+			      preparedStmt.executeUpdate();
+			    }catch(SQLException e){
+			      System.out.println("SQL");
+			      System.out.println(e.getMessage());
+			      return false;
+			    }catch(Exception e){
+			      e.printStackTrace();
+			      System.out.println("Ex");
+			      return false;
+			    }
+			      return true;
+		 }
 		 
 		 // show books
 		 public ResultSet getBooks() {
@@ -107,6 +132,7 @@ public class Connections {
 			    }
 			    return resultSet;
 			   }
+		 
 		 public ResultSet getBook(String name, String author) {
 			 sqlQuery = "SELECT * FROM books_info WHERE Book_Name= ? and  Book_Author= ? and user_ID= ?";
 			 try{
@@ -138,7 +164,101 @@ public class Connections {
 
 			 return i;
 			 }
+		 public ResultSet getMyRequests() {
+			 String id = String.valueOf(getID());
+			    sqlQuery = "SELECT * FROM requests WHERE user_ID='"+id+"';";
+			    try {
+			     preparedStmt = connection.prepareStatement(sqlQuery);
+			     resultSet = preparedStmt.executeQuery();
+			    } catch (SQLException e) {
+			    	System.out.println(e.getMessage());	
+			    }
+			    return resultSet;
+			   }
 		 
+		 //Admin side
+		 //get requested
+		 public ResultSet getRequests() {
+			    sqlQuery = "SELECT * FROM requests WHERE Request_State='Waiting';";
+			    try {
+			     preparedStmt = connection.prepareStatement(sqlQuery);
+			     resultSet = preparedStmt.executeQuery();
+			    } catch (SQLException e) {
+			    	System.out.println(e.getMessage());	
+			    }
+			    return resultSet;
+			   }
+		 public int rejectBook(String Book_ID) {
+			 
+			 sqlQuery = "Update requests set Request_State=? WHERE Book_ID = " + Book_ID;
+			 int i=0;
+			 try{
+			 preparedStmt = connection.prepareStatement(sqlQuery);
+			 preparedStmt.setString(1,"Reject");
+			 i = preparedStmt.executeUpdate();
+			 }
+			 catch(SQLException e){
+			 System.out.print(e);
+			 e.printStackTrace();
+			 }
+
+			 return i;
+		 }
+        public int acceptBook(String Book_ID) {
+			 
+			 sqlQuery = "Update requests set Request_State=? WHERE Book_ID = " + Book_ID;
+			 int i=0;
+			 try{
+			 preparedStmt = connection.prepareStatement(sqlQuery);
+			 preparedStmt.setString(1,"Accept");
+			 i = preparedStmt.executeUpdate();
+			 }
+			 catch(SQLException e){
+			 System.out.print(e);
+			 e.printStackTrace();
+			 }
+
+			 return i;
+		 }
+        public ResultSet getBookRequest(String Book_ID) {
+			 sqlQuery = "SELECT * FROM requests WHERE Book_ID= ? ";
+			 try{
+			 preparedStmt = connection.prepareStatement(sqlQuery);
+			 preparedStmt.setString(1, Book_ID);
+			 resultSet = preparedStmt.executeQuery();
+
+			 }catch(SQLException e){
+			 System.out.println(e);
+			 }
+			 return resultSet;
+			 }
+        //add book to books_info relation
+		 public int transfer(ResultSet result) {
+			 
+			  if(result==null){
+				  System.out.println("Object at connections line 204 is null");
+			         System.out.print("error");  
+			 }else {
+				 String user_ID;
+				try {
+					result.next();
+					user_ID = result.getNString("User_ID");
+				 String BName = result.getNString("Book_Name");//request.getParameter("Book_Name");
+				 String AName = result.getNString("Book_Auther");
+				 String Categ = result.getNString("Book_Category");
+				 String price = result.getNString("Price");
+				 boolean isAdded = addBook(user_ID, BName, AName, Categ, price);
+				  if(isAdded) {
+				    return 1;}
+				  else if(!isAdded) {
+				    return 0;}
+				} catch (SQLException e) {
+					e.printStackTrace();
+					System.out.print(e.getMessage());
+				}
+			 }
+			return 0;	  
+		 }
 		 public void close(){
 			 try {
 			 connection.close();

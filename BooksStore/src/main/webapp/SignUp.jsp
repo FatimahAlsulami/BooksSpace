@@ -99,16 +99,16 @@
     <hr>
 
     <label for="email"><b>First name:</b></label>
-    <input type="text" placeholder="Your first name" name="Fname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
+    <input type="text" placeholder="Your first name Example: Layan" name="Fname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
     <label for="email"><b>Last Name:</b></label>
-    <input type="text" placeholder="Your last name" name="Lname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
+    <input type="text" placeholder="Your last name Example: Ahmed" name="Lname" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
     <label for="email"><b>Email</b></label>
-    <input type="email" placeholder="Your Email" name="Email" size="30" required>
+    <input type="email" placeholder="Your Email Example: example@ex.com " name="Email" size="30" onkeypress="return /[0-9a-zA-Z\@\.]/i.test(event.key)"required>
 
     <label for="psw"><b>Password</b></label>
-    <input type="password" placeholder="Enter Password" name="Pass" size="20" required>
+    <input type="password" placeholder="Enter Password Example: Er33T" name="Pass" size="20" onkeypress="return /[0-9a-zA-Z]/i.test(event.key)" required>
 
     <!-- <label for="psw-repeat"><b>Repeat Password</b></label>
     <input type="password" placeholder="Repeat Password" name="psw-repeat" id="psw-repeat" required>

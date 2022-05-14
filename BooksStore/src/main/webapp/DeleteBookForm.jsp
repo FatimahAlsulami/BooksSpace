@@ -11,7 +11,7 @@
     body {
      float: right;
      font-family: Arial, Helvetica, sans-serif;
-     background-color: black; 
+     background-color: #800080; 
      background-size: 50% 100%;
     }
 
@@ -23,17 +23,18 @@
     .container {
      display: inline-block;
      position: relative;
-     width: 67%;
+     width: 100%;
+     hight: 100%;
      float: right;
-     right: 7px;
-     padding: 16px;
+     padding: 29px;
      background-color: white;
-     background-size: 50% 100%;
+     background-size: 80% 100%;
+     
     }
 
     /* Full-width input fields */
     input[type=text], input[type=password] {
-     width: 95%;
+     width: 100%;
      padding: 15px;
      margin: 5px 0 22px 0;
      display: inline-block;
@@ -57,7 +58,7 @@
      margin: 8px 0px;
      border: none;
      cursor: pointer;
-     width: 30%;
+     width: 50%;
      position: <br>;
      top: 100%;
      left: 50%;
@@ -118,13 +119,14 @@
     <hr>
 
     <label for="email"><b>Book name</b></label>
-    <input type="text" placeholder="Book title" name="Book_Name" required>
+    <input type="text" placeholder="Book title" name="Book_Name" onkeypress="return /[0-9a-zA-Z\s]/i.test(event.key)" required>
 
     <label for="email"><b>Author name</b></label>
-    <input type="text" placeholder="Book Author name" name="Book_Author" required>
+    <input type="text" placeholder="Book Author name" name="Book_Author" onkeypress="return /[0-9a-zA-Z\s]/i.test(event.key)" required>
     
+    <p>You only authorized to delete your books </p>
     <hr>
-    <br><br><br>
+    <br><br><br><br><br>
     <button type="submit" class="registerbtn">Delete Book</button>
     <button type="reset" class="registerbtn">Reset</button>
   </div>

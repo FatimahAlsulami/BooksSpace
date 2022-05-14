@@ -11,26 +11,41 @@
 <body>
 <%
     String Fname= request.getParameter("Fname");
-    String Lname= request.getParameter("user_ID");
+    String userID= request.getParameter("user_ID");
     String pass= request.getParameter("Pass");
-    if( Fname != null && Fname.length() !=0&& pass.length()!=0){
+    
+    if( Fname != null && Fname.length() !=0 && pass.length()!=0 && pass != null){
+     session.setMaxInactiveInterval(10);
 	 DB.Connections connection =new DB.Connections();
-	 ResultSet resultSet=connection.getUser(Fname,Lname, pass);
+	 ResultSet resultSet=connection.getUser(Fname,userID, pass);
+	 
 	 if(resultSet.next()) {
+		 String role = resultSet.getString("user_role");
 		 session.setAttribute("Fname", Fname);
-		 session.setAttribute("user_ID", Lname);
+		 session.setAttribute("user_ID", userID);
 		 session.setAttribute("Pass", pass);
-		 session.setMaxInactiveInterval(5);
-		 %><%@ include file="Services.jsp" %><%
-		//  out.print("<a href='ShowUser.jsp'> Show </a> |");
+		 session.setAttribute("user_role", role);
+		 
+		 if(session.getAttribute("user_ID") != null && role.equalsIgnoreCase("admin"))
+		    {//Admin
+			 
+			 %><%@ include file="Admin_Second_Verfication.jsp" %><%
+		    }
+		    else if(session.getAttribute("user_ID") != null && role.equalsIgnoreCase("user"))
+		    {//user
+		        %><%@ include file="Services.jsp" %><%
+		    }
+		    else
+		    {//somthing wrong
+		    	%><%@ include file="SignUp.jsp" %><%
+		    }
+		 		 
 
-      }else {
+      }else {//user not found so you must register first
     	  %><%@ include file="SignUp.jsp" %><%
-     }
- //else
- //redirect user login page with appropitate message
-    }else{
-       response.sendRedirect("Login.jsp");
+      }
+    }else{//user not found so you must register first
+    	 %><%@ include file="SignUp.jsp" %><%
       }
  %>
 </body>

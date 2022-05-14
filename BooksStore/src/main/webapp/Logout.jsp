@@ -10,7 +10,6 @@
 <body>
 <%
  session.invalidate();
- out.print("you are not authorzied user");
  response.sendRedirect("Index.jsp");
  %>
 </body>
